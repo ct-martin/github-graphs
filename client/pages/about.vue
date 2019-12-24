@@ -31,10 +31,10 @@
                         <h3 class="card-title">{{ developer.name }}</h3>
                         <p>{{ developer.about }}</p>
                         <div class="d-flex text-decoration-none">
-                            <a class="mr-3" :href="developer.github">
+                            <a class="mr-3" :href="`https://github.com/${developer.github}`">
                                 <img src="img/github-circle.svg" alt="">
                             </a>
-                            <a class="mr-3" :href="developer.linkedin">
+                            <a class="mr-3" :href="`https://linkedin.com/in/${developer.linkedin}`">
                                 <img src="img/linkedin-box.svg" alt="">
                             </a>
                             <a :href="`mailto:${developer.email}`">
@@ -59,8 +59,8 @@ export default {
                     name: "Jeff",
                     avatar: "https://avatars0.githubusercontent.com/u/13894625?s=400&v=4",
                     about: "Managed a majority of the work with the backend, pulling data from GitHub and generating the graphs with visJS.",
-                    github: "https://github.com/jrtechs",
-                    linkedin: "https://www.linkedin.com/in/jrtechs",
+                    github: "jrtechs",
+                    linkedin: "jrtechs",
                     email: "jeffery@jrtechs.net",
                 },
                 {
@@ -68,8 +68,8 @@ export default {
                     name: "Bryce",
                     avatar: "https://avatars0.githubusercontent.com/u/32306409?s=400&v=4",
                     about: "Worked on pulling API data from GitHub to create the mini-profile display and some graph work.",
-                    github: "https://github.com/theshmurph",
-                    linkedin: "https://www.linkedin.com/in/theshmurph",
+                    github: "theshmurph",
+                    linkedin: "theshmurph",
                     email: "brshmurphy@gmail.com",
                 },
                 {
@@ -77,8 +77,8 @@ export default {
                     name: "Alex",
                     avatar: "https://avatars3.githubusercontent.com/u/32624140?s=400&v=4",
                     about: "Worked on the front-end design of the website, responsible for a majority of the html and css elements.",
-                    github: "https://github.com/CetaceanNation",
-                    linkedin: "https://www.linkedin.com/in/a-noel",
+                    github: "CetaceanNation",
+                    linkedin: "a-noel",
                     email: "axn5966@rit.edu",
                 }
             ]
