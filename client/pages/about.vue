@@ -1,46 +1,41 @@
 <template>
-<div>
-    <div class="container">
-        <div class="row py-5">
-            <div class="col-md-6 offset-md-3 text-center text-white">
-                <h1 class="font-weight-bold">What is this?</h1>
-                <p>This is an interactive website which allows you to make various graphs of information from
-                the GitHub network. Currently the site generates three types of graphs-- the most popular and entertaining of which is the friends graph. The friends graph helps you visualize clusters of friends/collaborators on GitHub.This can be used to spot clusters within organizations and schools.</p>
-                <p>This is an open source project, all the source code can be found on GitHub. New collaborators are always welcomed; look at our GitHub repository for contributing guidelines.</p>
-            </div>
-        </div>
-        <div class="row py-5">
-            <div class="col-md-6 offset-md-3 text-center">
-                <h2 class="font-weight-bold">Why did you make this?</h2>
-                <p>This project was completed in 24 hours for participation in <a class="plink" href="https://brickhack.io/">BrickHack V</a> at the Rochester Institute of Technology. We hope that this project will make people more interested in learning about big data analytics. The visual aspect of this website makes learning about topics such as clustering and graph databases more intuitive.</p>
-            </div>
+<div class="container">
+    <div class="row py-5">
+        <div class="col-md-6 offset-md-3 text-center text-white">
+            <h1 class="font-weight-bold">What is this?</h1>
+            <p>This is an interactive website which allows you to make various graphs of information from
+            the GitHub network. Currently the site generates three types of graphs-- the most popular and entertaining of which is the friends graph. The friends graph helps you visualize clusters of friends/collaborators on GitHub.This can be used to spot clusters within organizations and schools.</p>
+            <p>This is an open source project, all the source code can be found on GitHub. New collaborators are always welcomed; look at our GitHub repository for contributing guidelines.</p>
         </div>
     </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h2 class="h1 font-weight-bold text-center">Developers</h2>
-            </div>
+    <div class="row py-5">
+        <div class="col-md-6 offset-md-3 text-center">
+            <h2 class="font-weight-bold">Why did you make this?</h2>
+            <p>This project was completed in 24 hours for participation in <a class="plink" href="https://brickhack.io/">BrickHack V</a> at the Rochester Institute of Technology. We hope that this project will make people more interested in learning about big data analytics. The visual aspect of this website makes learning about topics such as clustering and graph databases more intuitive.</p>
         </div>
-        <div class="row py-4">
-            <div class="col-md-4" v-for="developer in developers" v-bind:key="developer.id">
-                <div class="card">
-                    <img class="card-img" :src="developer.avatar" :alt="developer.name">
-                    <div class="card-body">
-                        <h3 class="card-title">{{ developer.name }}</h3>
-                        <p>{{ developer.about }}</p>
-                        <div class="d-flex text-decoration-none">
-                            <a class="mr-3" :href="`https://github.com/${developer.github}`">
-                                <img src="img/github-circle.svg" alt="">
-                            </a>
-                            <a class="mr-3" :href="`https://linkedin.com/in/${developer.linkedin}`">
-                                <img src="img/linkedin-box.svg" alt="">
-                            </a>
-                            <a :href="`mailto:${developer.email}`">
-                                <img src="img/email.svg" alt="">
-                            </a>
-                        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h2 class="h1 font-weight-bold text-center">Developers</h2>
+        </div>
+    </div>
+    <div class="row py-4">
+        <div class="col-md-4" v-for="developer in developers" v-bind:key="developer.id">
+            <div class="card">
+                <img class="card-img" :src="developer.avatar" :alt="developer.name">
+                <div class="card-body">
+                    <h3 class="card-title">{{ developer.name }}</h3>
+                    <p>{{ developer.about }}</p>
+                    <div class="d-flex text-decoration-none">
+                        <a class="mr-3" :href="`https://github.com/${developer.github}`">
+                            <img src="img/github-circle.svg" alt="">
+                        </a>
+                        <a class="mr-3" :href="`https://linkedin.com/in/${developer.linkedin}`">
+                            <img src="img/linkedin-box.svg" alt="">
+                        </a>
+                        <a :href="`mailto:${developer.email}`">
+                            <img src="img/email.svg" alt="">
+                        </a>
                     </div>
                 </div>
             </div>

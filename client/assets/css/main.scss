@@ -96,7 +96,7 @@ body {
       background: linear-gradient(180deg, var(--dark-2) 0%, var(--dark-2) 420px, var(--white) 420px);
   }
 
-  .home-page .main::before {
+  .main .home-page::before {
       display: block;
       content: '';
       position: absolute;
