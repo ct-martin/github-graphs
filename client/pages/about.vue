@@ -1,5 +1,5 @@
 <template>
-  <div>
+<div>
     <div class="container">
         <div class="row py-5">
             <div class="col-md-6 offset-md-3 text-center text-white">
@@ -24,60 +24,20 @@
             </div>
         </div>
         <div class="row py-4">
-            <div class="col-md-4">
+            <div class="col-md-4" v-for="developer in developers" v-bind:key="developer.id">
                 <div class="card">
-                    <img class="card-img" src="https://avatars0.githubusercontent.com/u/13894625?s=400&v=4" alt="Jeff">
+                    <img class="card-img" :src="developer.avatar" :alt="developer.name">
                     <div class="card-body">
-                        <h3 class="card-title">Jeff</h3>
-                        <p>Managed a majority of the work with the backend, pulling data from GitHub and generating the graphs with visJS.</p>
+                        <h3 class="card-title">{{ developer.name }}</h3>
+                        <p>{{ developer.about }}</p>
                         <div class="d-flex text-decoration-none">
-                            <a class="mr-3" href="https://github.com/jrtechs">
+                            <a class="mr-3" :href="developer.github">
                                 <img src="img/github-circle.svg" alt="">
                             </a>
-                            <a class="mr-3" href="https://www.linkedin.com/in/jrtechs/">
+                            <a class="mr-3" :href="developer.linkedin">
                                 <img src="img/linkedin-box.svg" alt="">
                             </a>
-                            <a href="mailto:jeffery@jrtechs.net">
-                                <img src="img/email.svg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img" src="https://avatars0.githubusercontent.com/u/32306409?s=400&v=4" alt="Bryce">
-                    <div class="card-body">
-                        <h3 class="card-title">Bryce</h3>
-                        <p>Worked on pulling API data from GitHub to create the mini-profile display and some graph work.</p>
-                        <div class="d-flex text-decoration-none">
-                            <a class="mr-3" href="https://github.com/theshmurph">
-                                <img src="img/github-circle.svg" alt="">
-                            </a>
-                            <a class="mr-3" href="https://www.linkedin.com/in/theshmurph">
-                                <img src="img/linkedin-box.svg" alt="">
-                            </a>
-                            <a href="mailto:brshmurphy@gmail.com">
-                                <img src="img/email.svg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img" src="https://avatars3.githubusercontent.com/u/32624140?s=400&v=4" alt="Alex">
-                    <div class="card-body">
-                        <h3 class="card-title">Alex</h3>
-                        <p>Worked on the front-end design of the website, responsible for a majority of the html and css elements.</p>
-                        <div class="d-flex text-decoration-none">
-                            <a class="mr-3" href="https://github.com/CetaceanNation">
-                                <img src="img/github-circle.svg" alt="">
-                            </a>
-                            <a class="mr-3" href="https://www.linkedin.com/in/a-noel/">
-                                <img src="img/linkedin-box.svg" alt="">
-                            </a>
-                            <a href="mailto:axn5966@rit.edu">
+                            <a :href="`mailto:${developer.email}`">
                                 <img src="img/email.svg" alt="">
                             </a>
                         </div>
@@ -86,5 +46,43 @@
             </div>
         </div>
     </div>
-  </div>
+</div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            developers: [
+                {
+                    id: 0,
+                    name: "Jeff",
+                    avatar: "https://avatars0.githubusercontent.com/u/13894625?s=400&v=4",
+                    about: "Managed a majority of the work with the backend, pulling data from GitHub and generating the graphs with visJS.",
+                    github: "https://github.com/jrtechs",
+                    linkedin: "https://www.linkedin.com/in/jrtechs",
+                    email: "jeffery@jrtechs.net",
+                },
+                {
+                    id: 1,
+                    name: "Bryce",
+                    avatar: "https://avatars0.githubusercontent.com/u/32306409?s=400&v=4",
+                    about: "Worked on pulling API data from GitHub to create the mini-profile display and some graph work.",
+                    github: "https://github.com/theshmurph",
+                    linkedin: "https://www.linkedin.com/in/theshmurph",
+                    email: "brshmurphy@gmail.com",
+                },
+                {
+                    id: 2,
+                    name: "Alex",
+                    avatar: "https://avatars3.githubusercontent.com/u/32624140?s=400&v=4",
+                    about: "Worked on the front-end design of the website, responsible for a majority of the html and css elements.",
+                    github: "https://github.com/CetaceanNation",
+                    linkedin: "https://www.linkedin.com/in/a-noel",
+                    email: "axn5966@rit.edu",
+                }
+            ]
+        }
+    } 
+}
+</script>
