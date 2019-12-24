@@ -1,59 +1,4 @@
-﻿<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Organization - GitHub Graphs</title>
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
-    <script
-            src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous">
-    </script>
-
-    <script src="js/githubAPI.js"></script>
-    <script src="js/friendsGraph.js"></script>
-    <script src="js/createOrgRepoGraph.js"></script>
-    <script src="js/utilities.js"></script>
-    <script src="js/profileGen.js"></script>
-    <script src="js/createOrgTable.js"></script>
-    <script src="js/createOrgInfo.js"></script>
-
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
-    <script type="text/javascript" src="js/vis/vis.js"></script>
-    <link href="js/vis/vis-network.min.css" rel="stylesheet" type="text/css" />
-
-</head>
-<body>
-    <nav class="navbar navbar-dark bg-dark navbar-expand-md">
-        <a class="navbar-brand" href="/"><img src="img/githubgraph-logo.svg" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div id="main-menu" class="collapse navbar-collapse">
-            <ul class="navbar-nav flex-fill justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link" href="./GraphGenerator.html">Generate graphs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/jrtechs/github-graphs/">View on GitHub</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./about.html">About</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="main">
+<template>
         <div class="container-fluid container-xl">
             <div class="row">
                 <div class="col">
@@ -104,9 +49,33 @@
                 </div>
             </div>
         </div>
-    </div>
-</body>
+</template>
+
 <script>
+export default {
+    head() {
+        return {
+            script: [
+                { src: '/js/githubAPI.js' },
+                { src: '/js/friendsGraph.js' },
+                { src: '/js/createOrgRepoGraph.js' },
+                { src: '/js/profileGen.js' },
+                { src: '/js/utilities.js' },
+                { src: '/js/createOrgTable.js' },
+                { src: '/js/createOrgInfo.js' },
+                { src: 'https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js' },
+                { src: '/js/vis/vis.js' }
+            ],
+            link: [
+                { href: 'js/vis/vis-network.min.css', rel: 'stylesheet', type: 'text/css' }
+            ]
+        };
+    }
+}
+</script>
+
+<script>
+/*
     function createGraphs(orgname) {
         options.width = $("#myGraph").width() + "px";
         options.height = "600px";
@@ -119,5 +88,5 @@
     if (findGetParameter("name") !== null) {
         createGraphs(findGetParameter("name"))
     }
+    */
 </script>
-</html>
