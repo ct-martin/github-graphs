@@ -19,11 +19,9 @@
                     </div>
                     <div class="card-footer bg-transparent border-top-0">
                         <div class="input-group input-group-lg">
-                            <input id="input-friends-graph" type="text" class="form-control" placeholder="Username">
+                            <input id="input-friends-graph" type="text" class="form-control" placeholder="Username" v-model="friendsInput">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button" onclick="toFriends()">
-                                    Generate
-                                </button>
+                                <a class="btn btn-primary" href="`/friends-graph/${friendsInput}`">Generate</a>
                             </div>
                         </div>
                     </div>
@@ -40,11 +38,9 @@
                     </div>
                     <div class="card-footer bg-transparent border-top-0">
                         <div class="input-group input-group-lg">
-                            <input id="input-timeline-graph" type="text" class="form-control" placeholder="Username">
+                            <input id="input-timeline-graph" type="text" class="form-control" placeholder="Username" v-model="timelineInput">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button" onclick="toTimeline()">
-                                    Generate
-                                </button>
+                                <a class="btn btn-primary" href="`/timeline-graph/${timelineInput}`">Generate</a>
                             </div>
                         </div>
                     </div>
@@ -62,11 +58,9 @@
                     </div>
                     <div class="card-footer bg-transparent border-top-0">
                         <div class="input-group input-group-lg">
-                            <input id="input-organization-graph" type="text" class="form-control" placeholder="Organization">
+                            <input id="input-organization-graph" type="text" class="form-control" placeholder="Organization" v-model="orgInput">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button" onclick="toOrgRepos()">
-                                    Generate
-                                </button>
+                                <a class="btn btn-primary" href="`/org-repo-graph/${orgInput}`">Generate</a>
                             </div>
                         </div>
                     </div>
@@ -77,61 +71,13 @@
 </template>
 
 <script>
-/*
-    var inputFriends = document.querySelectorAll('#input-friends-graph');
-    var inputTimeLine = document.querySelectorAll('#input-timeline-graph');
-    var inputOrgRepos = document.querySelectorAll('#input-organization-graph');
-
-    inputFriends.forEach((el) => {
-        el.addEventListener('keydown', (event) => {
-            redirectToPage(event, () => {
-                toFriends();
-            });
-        });
-    });
-
-    inputTimeLine.forEach((el) => {
-        el.addEventListener('keydown', (event) => {
-            redirectToPage(event, () => {
-                toTimeline();
-            });
-        });
-    });
-
-    inputOrgRepos.forEach((el) => {
-        el.addEventListener('keydown', (event) => {
-            redirectToPage(event, () => {
-                toOrgRepos();
-            });
-        });
-    });
-
-    function redirectToPage(e, pageFunction) {
-        if (e.keyCode === 13) {
-            event.preventDefault();
-            pageFunction();
+export default {
+    data() {
+        return {
+            friendsInput: "",
+            timelineInput: "",
+            orgInput: ""
         }
     }
-
-    function toFriends() {
-        userName = inputFriends.val();
-        userName
-            ? window.location.href = "./FriendsGraph.html?name=" + userName
-            : alert("Please enter a Github name in the text field.")
-    }
-
-    function toTimeline() {
-        userName = inputTimeLine.val();
-        userName
-            ? window.location.href = "./TimeLineGraph.html?name=" + userName
-            : alert("Please enter a Github name in the text field.");
-    }
-
-    function toOrgRepos() {
-        organizationName = inputOrgRepos.val();
-        organizationName
-            ? window.location.href = "./OrgRepoGraph.html?name=" + organizationName
-            : alert("Please enter a Github organization name in the text field.");
-    }
-    */
+}
 </script>
