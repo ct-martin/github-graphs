@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+    <div class="container home-page">
     <div class="row align-items-center text-white">
         <div class="col-lg-6">
             <div class="py-5">
@@ -29,5 +29,5 @@
             <img src="img/home-image.png" alt="" class="img-fluid d-lg-none">
         </div>
     </div>
-  </div>
+</div>
 </template>
