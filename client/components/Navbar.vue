@@ -7,15 +7,26 @@
         <div id="main-menu" class="collapse navbar-collapse">
             <ul class="navbar-nav flex-fill justify-content-end">
                 <li class="nav-item">
-                    <nuxt-link class="nav-link" to="/graph-generator">Generate graphs</nuxt-link>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/jrtechs/github-graphs/">View on GitHub</a>
-                </li>
-                <li class="nav-item">
-                    <nuxt-link class="nav-link" to="/about">About</nuxt-link>
+                    <span :href="`https://github.com/${auth.user.login}`" target="_blank" class="navbar-text" v-if="auth.loggedIn" @click="log">@{{auth.user.login}}</span>
+                    <span class="navbar-text" v-else @click="auth.login()">Log In</span>
                 </li>
             </ul>
         </div>
     </nav>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            auth: this.$auth
+        }
+    },
+    methods: {
+        log(data) {
+            console.dir(this.$auth.user);
+            console.dir(this.$auth.getToken('github'));
+        }
+    }
+}
+</script>

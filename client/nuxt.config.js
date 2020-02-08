@@ -46,7 +46,23 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
+
+  auth: {
+    strategies: {
+      local: false,
+      github: {
+        client_id: process.env.GH_ID,
+        client_secret: process.env.GH_SECRET
+      }
+    }
+  },
+
+  router: {
+    middleware: ['auth']
+  },
 
   /*
   ** CI generate configuration
