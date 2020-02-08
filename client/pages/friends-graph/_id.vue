@@ -34,6 +34,27 @@
 </template>
 
 <script>
+
+export default {
+    async asyncData({ app, params, store }) {
+        let token = app.$auth.getToken('github');
+        app.$axios.get(
+            `https://api.github.com/users/${app.$auth.user.login}`,
+            {
+                headers: {
+                    'Authorization': token,
+                }
+            }
+        ).then(res => {
+            console.dir(res.data);
+            return {};
+        });
+    }
+}
+
+
+
+/*
 export default {
     head() {
         return {
@@ -50,9 +71,7 @@ export default {
         };
     }
 }
-</script>
-
-<script>
+*/
 /*
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
@@ -72,5 +91,5 @@ export default {
     }
 
     $('#TimelineLink').attr("href", "TimeLineGraph.html?name=" + findGetParameter("name"));
-    */
+*/
 </script>
