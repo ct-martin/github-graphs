@@ -30,6 +30,17 @@ body {
   border-color: var(--dark-2);
 }
 
+.btn-tert {
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+}
+.btn-tert:hover{
+  border: 3px solid white;
+  font-weight: bold;
+
+}
+
 .navbar-dark .navbar-nav .nav-item.active .nav-link {
   font-weight: 600;
 }
@@ -79,6 +90,19 @@ body {
 .card .actions .btns:hover svg {
   fill: var(--primary);
   opacity: 1;
+}
+
+.footer {
+  background-color: rgba(36,41,46,1);
+  padding: 20px;
+}
+.footer div{
+  padding: 10px;
+  text-align: center;
+}
+.footer-img {
+  width: auto;
+  height: auto;
 }
 
 @media screen and (min-width: 768px) {
