@@ -30,6 +30,24 @@ body {
     border-color: var(--dark-2);
 }
 
+.btn-tert {
+    color: white;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 2px solid white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: auto;
+    height: auto;
+}
+.btn-tert:hover{
+    border: 3px solid white;
+    font-weight: bold;
+
+}
+
 .navbar-dark .navbar-nav .nav-item.active .nav-link {
     font-weight: 600;
 }
@@ -79,6 +97,38 @@ body {
 .card .actions .btns:hover svg {
     fill: var(--primary);
     opacity: 1;
+}
+
+.footer {
+    background-color: rgba(36,41,46,1);
+    height: auto;
+    width: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.footer-left{
+    justify-self: flex-start;
+    padding: 10px;
+    width: 33.33%;
+    text-align: center;
+}
+.footer-center{
+    justify-self: center;
+    padding: 10px;
+    width: 33.33%;
+    text-align: center;
+}
+.footer-right{
+    justify-self: flex-end;
+    padding: 10px;
+    width: 33.33%;
+    text-align: center;
+}
+.footer-img {
+    width: auto;
+    height: auto;
 }
 
 @media screen and (min-width: 768px) {
