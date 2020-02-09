@@ -13,9 +13,6 @@
                         </svg>
                         <h1 class="text-white font-weight-bold">Interactive friend chart</h1>
                     </div>
-                    <div>
-                        <a id="TimelineLink" class="text-light" href="#">View repo timeline</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -26,7 +23,11 @@
             <div class="col-lg-9 col-md-8 col-12">
                 <div class="card shadow text-white bg-dark border-white">
                     <h2 id="graphLoading"></h2>
-                    <div id="myGraph" class="w-100"></div>
+                    <div id="myGraph" class="w-100">
+                        <network
+                            :options="graphOptions"
+                        ></network>
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,21 +36,51 @@
 
 <script>
 import UserCard from '~/components/UserCard.vue';
+import { Network } from 'vue2vis';
 
 export default {
     components: {
+        Network,
         UserCard
     },
     async asyncData({ app, params, store }) {
+        // Get profile data
         let endpoint = `users/${app.$auth.user.login}`;
         await store.dispatch('api/assertHas', {app, url: endpoint});
         let user = store.getters['api/get'](endpoint);
 
+        // Get orgs for profile
         endpoint = user.organizations_url;
         await store.dispatch('api/assertHas', {app, url: endpoint});
         let orgs = store.getters['api/get'](endpoint);
 
+        // Generate friends graph
+        const username = user.login;
+        let nodes = [];
+        let edges = [];
+
+
+        // Return properties
         return {user, orgs};
+    },
+    data() {
+        const graphOptions = {
+            edges: {
+                color: 'lightgray'
+            },
+            height: '700px',
+            nodes: {
+                borderWidth:4,
+                color: {
+                    border: '#222222',
+                    background: '#666666'
+                },
+                font:{color:'#eeeeee'},
+                size:30
+            }
+        };
+
+        return { graphOptions };
     }
 }
 
