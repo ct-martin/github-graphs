@@ -21,7 +21,7 @@
         </div>
         <div class="row pb-4">
             <div class="col-lg-3 col-md-4 col-12">
-                <user-card :user="user || {}"/>
+                <user-card :user="user" :orgs="orgs"/>
             </div>
             <div class="col-lg-9 col-md-8 col-12">
                 <div class="card shadow text-white bg-dark border-white">
@@ -42,8 +42,14 @@ export default {
     },
     async asyncData({ app, params, store }) {
         let endpoint = `users/${app.$auth.user.login}`;
-        await store.dispatch('api/assertHas', {app, endpoint});
-        return {user: store.getters['api/get'](endpoint)};
+        await store.dispatch('api/assertHas', {app, url: endpoint});
+        let user = store.getters['api/get'](endpoint);
+
+        endpoint = user.organizations_url;
+        await store.dispatch('api/assertHas', {app, url: endpoint});
+        let orgs = store.getters['api/get'](endpoint);
+
+        return {user, orgs};
     }
 }
 

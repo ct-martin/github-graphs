@@ -31,7 +31,13 @@
                 <li>Following: {{user.following}}</li>
                 <li>Repositories: {{user.public_repos}}</li>
             </ul>
-            <!--${orgsReturn != [] ? `<hr /> <p>Organizations</p> ${orgsReturn}` : ""}-->
+            <div v-if="orgs && orgs.length > 0">
+                <hr>
+                <p>Organizations</p>
+                <a v-for="org in orgs" :href="`/org-repo-graph/${org.login}`">
+                    <img :src="org.avatar_url" class="img-fluid" style="max-width:35px"/>
+                </a>
+            </div>
         </div>
     </div>
 </template>
@@ -42,6 +48,10 @@ export default {
         user: {
             type: Object,
             default: undefined
+        },
+        orgs: {
+            type: Array,
+            default: []
         }
     }
 }
