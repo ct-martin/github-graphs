@@ -5,7 +5,7 @@ export const state = () => ({
 export const getters = {
     get: (state) => (endpoint) => {
         console.log(`CACHE.GET => ${endpoint}`)
-        return state.cache[endpoint];
+        return state.cache[endpoint.replace('https://api.github.com/','')];
     }
 }
 
@@ -17,7 +17,12 @@ export const mutations = {
 }
 
 export const actions = {
-    assertHas({commit, state}, {app, endpoint}) {
+    assertHas({commit, state}, {app, url}) {
+        if(url === undefined) {
+            console.error(`CACHE.BADREQ`);
+            return;
+        }
+        let endpoint = `${url}`.replace('https://api.github.com/','');
         console.log(`CACHE.ASSERT => ${endpoint}`);
         if(!state.hasOwnProperty(endpoint)) {
             console.log(`CACHE.MISS => ${endpoint}`);
@@ -31,7 +36,7 @@ export const actions = {
                 }
             ).then(res => {
                 console.log(`CACHE.FIND => ${endpoint}`);
-                commit('setData', {endpoint, data: res.data})
+                return commit('setData', {endpoint, data: res.data})
             });
         } else {
             console.log(`CACHE.HIT => ${endpoint}`);
