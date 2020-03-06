@@ -68,6 +68,8 @@ module.exports = {
     middleware: ['auth']
   },
 
+  mode: 'spa',
+
   /*
   ** CI generate configuration
   */
