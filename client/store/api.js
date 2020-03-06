@@ -24,7 +24,7 @@ export const actions = {
         }
         let endpoint = `${url}`.replace('https://api.github.com/','');
         console.log(`CACHE.ASSERT => ${endpoint}`);
-        if(!state.hasOwnProperty(endpoint)) {
+        if(!state.cache.hasOwnProperty(endpoint)) {
             console.log(`CACHE.MISS => ${endpoint}`);
             let token = app.$auth.getToken('github');
             return app.$axios.get(
