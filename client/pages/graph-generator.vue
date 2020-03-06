@@ -21,7 +21,7 @@
                         <div class="input-group input-group-lg">
                             <input id="input-friends-graph" type="text" class="form-control" placeholder="Username" v-model="friendsInput">
                             <div class="input-group-append">
-                                <a class="btn btn-primary" :href="`/friends-graph/${friendsInput}`">Generate</a>
+                                <nuxt-link class="btn btn-primary" :to="`/friends-graph/${friendsInput}`">Generate</nuxt-link>
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                         <div class="input-group input-group-lg">
                             <input id="input-timeline-graph" type="text" class="form-control" placeholder="Username" v-model="timelineInput">
                             <div class="input-group-append">
-                                <a class="btn btn-primary" :href="`/timeline-graph/${timelineInput}`">Generate</a>
+                                <nuxt-link class="btn btn-primary" :to="`/timeline-graph/${timelineInput}`">Generate</nuxt-link>
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                         <div class="input-group input-group-lg">
                             <input id="input-organization-graph" type="text" class="form-control" placeholder="Organization" v-model="orgInput">
                             <div class="input-group-append">
-                                <a class="btn btn-primary" :href="`/org-repo-graph/${orgInput}`">Generate</a>
+                                <nuxt-link class="btn btn-primary" :to="`/org-repo-graph/${orgInput}`">Generate</nuxt-link>
                             </div>
                         </div>
                     </div>
