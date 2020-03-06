@@ -1,8 +1,8 @@
 {
-  "name": "Portfolio-Fall2018",
+  "name": "github_graphs",
   "version": "1.0.0",
-  "description": "Portfolio | Christian Martin",
-  "author": "CTMartin",
+  "description": "GitHub Graphs",
+  "author": "jrtechs",
   "private": true,
   "scripts": {
     "build": "nuxt-ts build",
